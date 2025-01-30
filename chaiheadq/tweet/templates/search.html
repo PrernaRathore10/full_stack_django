@@ -7,10 +7,10 @@
 {% block content %}
     <h1 class="text-center mt-4">Welcome to Chai's Django</h1>
 
-    <a class="btn btn-primary" href="{% url 'tweet_create' %}">Create a tweet</a>
-    <div class="container row gap-3">
+    <h3 class="mt-4">Search Result:</h3>
+    <div class="container row gap-3 mt-3">
         {% for tweet in tweets %}
-        <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 18rem;">
           {% if tweet.photo %}
               <img src="{{ tweet.photo.url }}" class="card-img-top" alt="...">
           {% else %}
@@ -25,6 +25,16 @@
               {% endif %}
             </div>
           </div>
+        {% empty %}
+          <h5><br> No Tweet Found !!</h5>
+          <p>Your Search: <b><i>{{query}}</i></b> did not match any tweet.<br>Suggestions:
+          <ul>
+            <li>Make sure that all words are spelled correctly</li>
+            <li>Try more general keywords</li>
+            <li>Try fewer keywords</li>
+            <li>Try different keywords</li>
+          </ul>
+          </p>
         {% endfor %}
     </div>
 {% endblock %}
