@@ -1,13 +1,13 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    Chai aur Tweet
+    Connect
 {% endblock %}
 
 {% block content %}
-    <h1 class="text-center mt-4">Welcome to Chai's Django</h1>
+    <h1 class="text-center mt-3">Let's Tweet & Connect</h1>
 
-    <a class="btn btn-primary" href="{% url 'tweet_create' %}">Create a tweet</a>
+    <a class="btn btn-primary m-3" href="{% url 'tweet_create' %}">Create a tweet</a>
     <div class="container row gap-3">
         {% for tweet in tweets %}
         <div class="card" style="width: 18rem;">
